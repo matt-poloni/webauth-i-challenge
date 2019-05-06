@@ -2,9 +2,9 @@ const db = require('../data/dbConfig');
 
 module.exports = function(tbl) {
   return {
-    get: function(id) {
-      return id
-        ? db(tbl).where({id}).first()
+    get: function(val) {
+      return val
+        ? db(tbl).where(val).first()
         : db(tbl);
     },    
     post: function(entry) {
