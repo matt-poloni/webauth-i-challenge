@@ -5,10 +5,8 @@ const db = require('./registerModel');
 
 router.post('/', (req, res) => {
   let creds = req.body;
-
   const hash = bcrypt.hashSync(creds.password, 10);
   creds.password = hash;
-
   db.post(creds)
     .then(user => {
       res.status(201).json(user);

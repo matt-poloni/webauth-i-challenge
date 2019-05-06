@@ -5,7 +5,6 @@ const db = require('./loginModel');
 
 router.post('/', (req, res) => {
   let { username, password } = req.body;
-
   db.get({ username })
     .first()
     .then(user => {
@@ -15,8 +14,8 @@ router.post('/', (req, res) => {
         res.status(401).json({ message: 'You shall not pass!' });
       }
     })
-    .catch(error => {
-      res.status(500).json(error);
+    .catch(err => {
+      res.status(500).json({ message: 'Could not check credentials against users database.' });
     });
 })
 
