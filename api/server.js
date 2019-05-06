@@ -3,10 +3,10 @@ const helmet = require('helmet');
 const cors = require('cors');
 
 const mw = require('./middleware');
-const registerRt = require('./register');
-const loginRt = require('./login');
-const usersRt = require('./users');
-const restrictRt = require('./restricted');
+const registerRt = require('./register/router');
+const loginRt = require('./login/router');
+const usersRt = require('./users/router');
+const restrictRt = require('./restricted/router');
 
 const server = express();
 
