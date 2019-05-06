@@ -9,11 +9,11 @@ router.post('/', (req, res) => {
     .first()
     .then(user => {
       user && bcrypt.compareSync(password, user.password)
-        ? res.status(200).json({ message: `Welcome back ${user.username}` })
-        : res.status(401).json({ message: 'You shall not pass!' });
+        ? res.status(200).json({ error: `Welcome back ${user.username}` })
+        : res.status(401).json({ error: 'You shall not pass!' });
     })
     .catch(err => {
-      res.status(500).json({ message: 'Could not check credentials against users database.' });
+      res.status(500).json({ error: 'Could not check credentials against users database.' });
     });
 })
 

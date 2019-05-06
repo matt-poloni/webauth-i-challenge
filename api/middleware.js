@@ -14,12 +14,12 @@ function auth(req, res, next) {
       .then(user => {
         user && bcrypt.compareSync(password, user.password)
           ? next()
-          : res.status(401).json({ message: 'You shall not pass!' });
+          : res.status(401).json({ error: 'You shall not pass!' });
       })
-      .catch(error => {
+      .catch(err => {
         res.status(500).json({ error: 'Could not check credentials against users database.' });
       });
   } else {
-    res.status(400).json({message: 'Please provide both a username and password'});
+    res.status(400).json({error: 'Please provide both a username and password'});
   }
 }
