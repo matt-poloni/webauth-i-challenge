@@ -19,3 +19,5 @@ server.use(cors());
 server.get('/', (req, res) => {
   res.send("Up and running.");
 });
+
+module.exports = server;
