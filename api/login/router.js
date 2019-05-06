@@ -5,7 +5,7 @@ const db = require('./loginModel');
 
 router.post('/', (req, res) => {
   let { username, password } = req.body;
-  db.get({ username })
+  db.get({username})
     .first()
     .then(user => {
       if (user && bcrypt.compareSync(password, user.password)) {

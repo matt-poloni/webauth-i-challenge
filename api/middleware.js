@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 
-const db = require('./basicModel')('users');
+const db = require('./basicModel');
 
 module.exports = {
   auth,
@@ -9,7 +9,7 @@ module.exports = {
 function auth(req, res, next) {
   const { username, password } = req.headers;
   if(username && password) {
-    db.get({ username })
+    db('users').get({ username })
       .first()
       .then(user => {
         if (user && bcrypt.compareSync(password, user.password)) {
