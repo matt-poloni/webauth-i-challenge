@@ -1,7 +1,6 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
-const bcrypt = require('bcryptjs');
 
 // const registerRt = require('./register');
 // const loginRt = require('./login');
