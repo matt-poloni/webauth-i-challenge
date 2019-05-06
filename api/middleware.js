@@ -9,7 +9,7 @@ module.exports = {
 function auth(req, res, next) {
   const { username, password } = req.headers;
   if(username && password) {
-    db('users').get({ username })
+    db('users').get({username})
       .first()
       .then(user => {
         if (user && bcrypt.compareSync(password, user.password)) {

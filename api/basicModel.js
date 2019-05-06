@@ -3,6 +3,7 @@ const db = require('../data/dbConfig');
 module.exports = function(tbl) {
   return {
     get: function(val) {
+      // When invoking, wrap passed value in curly brackets
       return val
         ? db(tbl).where(val).first()
         : db(tbl);
