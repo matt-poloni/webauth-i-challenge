@@ -9,6 +9,7 @@ router.post('/', (req, res) => {
   creds.password = hash;
   db.post(creds)
     .then(user => {
+      req.session.username = user.username;
       res.status(201).json(user);
     })
     .catch(err => {
