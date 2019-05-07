@@ -20,6 +20,6 @@ function auth(req, res, next) {
         res.status(500).json({ error: 'Could not check credentials against users database.' });
       });
   } else {
-    res.status(400).json({error: 'Please provide both a username and password'});
+    res.status(400).json({ error: 'Please provide both a username and password' });
   }
 }

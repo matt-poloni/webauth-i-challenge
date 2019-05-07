@@ -1,6 +1,8 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
+const sessionConfig = require('../data/sessionConfig');
+const session = require('express-session')(sessionConfig);
 
 const mw = require('./middleware');
 const registerRt = require('./register/router');
@@ -10,6 +12,7 @@ const restrictRt = require('./restricted/router');
 
 const server = express();
 
+server.use(session);
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
