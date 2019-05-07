@@ -23,7 +23,8 @@ server.use('/api/users/', mw.auth, usersRt);
 server.use('/api/restricted/', mw.auth, restrictRt);
 
 server.get('/', (req, res) => {
-  res.send("Up and running.");
+  const client = req.session.username || 'stranger';
+  res.send(`Up and running, ${client}.`);
 });
 
 module.exports = server;
