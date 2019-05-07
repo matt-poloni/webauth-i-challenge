@@ -20,7 +20,7 @@ server.use(cors());
 server.use('/api/register/', registerRt);
 server.use('/api/login/', loginRt);
 server.use('/api/users/', mw.auth, usersRt);
-server.use('/api/restricted/', mw.auth, restrictRt)
+server.use('/api/restricted/', mw.auth, restrictRt);
 
 server.get('/', (req, res) => {
   res.send("Up and running.");
